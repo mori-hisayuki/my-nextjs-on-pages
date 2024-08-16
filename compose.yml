@@ -1,0 +1,20 @@
+x-node_app: &node_app
+  build:
+    context: .
+    dockerfile: ./docker/node/Dockerfile
+  # ゾンビプロセス防止
+  init: true
+  working_dir: /develop
+  volumes:
+    - .:/develop
+
+services:
+  node:
+    <<: *node_app
+  next:
+    <<: *node_app
+    hostname: localhost
+    ports:
+      - 3000:3000
+    restart: always
+    command: pnpm run dev
