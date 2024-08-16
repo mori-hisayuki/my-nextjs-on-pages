@@ -18,6 +18,6 @@ tasks:
   install:
     # npm installを実行するTask
     cmd: $COMPOSE run --rm node npm install
-  pnpm:
+  npm:
     # npmを実行するTask
     cmd: $COMPOSE run --rm node npm {{.CLI_ARGS}}
