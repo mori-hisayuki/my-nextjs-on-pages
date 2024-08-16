@@ -21,3 +21,6 @@ tasks:
   npm:
     # npmを実行するTask
     cmd: $COMPOSE run --rm node npm {{.CLI_ARGS}}
+  npx:
+    # npmを実行するTask
+    cmd: $COMPOSE run --rm node npx {{.CLI_ARGS}}
