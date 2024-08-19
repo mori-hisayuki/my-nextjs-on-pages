@@ -1,5 +1,5 @@
 FROM node:22.6.0
 
-RUN npm install -g pnpm ts-node
+RUN npm install -g pnpm ts-node wrangler
 
 WORKDIR /develop

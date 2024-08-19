@@ -15,15 +15,9 @@ tasks:
     cmd: $COMPOSE up -d
   down:
     cmd: $COMPOSE down
-  install:
-    # npm installを実行するTask
-    cmd: $COMPOSE run --rm node npm install
-  npm:
-    # npmを実行するTask
-    cmd: $COMPOSE run --rm node npm {{.CLI_ARGS}}
-  npx:
-    # npmを実行するTask
-    cmd: $COMPOSE run --rm node npx {{.CLI_ARGS}}
+  pnpm:
+    # pnpmを実行するTask
+    cmd: $COMPOSE exec pnpm bash
   wrangler:
     # npm loginを実行するTask
     cmd: $COMPOSE exec wrangler bash

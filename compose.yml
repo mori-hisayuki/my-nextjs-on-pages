@@ -6,16 +6,22 @@ x-node_app: &node_app
   init: true
   volumes:
     - .:/develop
+    - node_modules:/develop/node_modules
 
 services:
-  node:
+  pnpm:
     <<: *node_app
+    stdin_open: true
+    entrypoint: bash
   next:
     <<: *node_app
     hostname: localhost
     ports:
       - 3000:3000
     restart: always
+    volumes:
+      - .:/develop
+      - wrangler_config:/root/.config/.wrangler
     command: pnpm run dev
   wrangler:
     # ゾンビプロセス防止
@@ -23,7 +29,7 @@ services:
     stdin_open: true
     build:
       context: .
-      dockerfile: ./docker/wrangler/Dockerfile
+      dockerfile: ./docker/node/Dockerfile
     ports:
       - 8976:8976
       - 8788:8788
@@ -35,3 +41,4 @@ services:
 
 volumes:
   wrangler_config:
+  node_modules:
