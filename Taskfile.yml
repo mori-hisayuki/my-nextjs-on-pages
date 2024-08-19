@@ -24,3 +24,6 @@ tasks:
   npx:
     # npmを実行するTask
     cmd: $COMPOSE run --rm node npx {{.CLI_ARGS}}
+  wrangler:
+    # npm loginを実行するTask
+    cmd: $COMPOSE exec wrangler bash
