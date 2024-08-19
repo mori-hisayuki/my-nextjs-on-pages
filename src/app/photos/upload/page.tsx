@@ -1,4 +1,5 @@
 import { getRequestContext } from "@cloudflare/next-on-pages";
+import { redirect } from "next/navigation";
 
 export const runtime = "edge";
 
@@ -13,6 +14,9 @@ const UploadPage = () => {
     await bucket.put(photo.name, photo);
 
     console.log("Uploaded", photo.name);
+
+    return redirect(`/photos/preview?name=${encodeURIComponent(photo.name)}`);
+
   }
 
   return(
