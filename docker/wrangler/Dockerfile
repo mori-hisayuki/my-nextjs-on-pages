@@ -1,7 +1,7 @@
-FROM node:22.6.0-alpine
+FROM node:22.6.0
 
-RUN apk update && \
-    apk add git vim bash curl
+RUN apt-get update \
+    && apt get install lsof
 
 RUN npm install -g wrangler 
 
