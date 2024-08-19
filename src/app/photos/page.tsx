@@ -1,6 +1,7 @@
 import { getRequestContext } from "@cloudflare/next-on-pages";
 import Link from "next/link";
 
+export const runtime = "edge";
 
 const ListPage = async () => {
   const bucket = getRequestContext().env.MY_BUCKET;
