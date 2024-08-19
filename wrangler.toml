@@ -10,3 +10,7 @@ pages_build_output_dir = ".vercel/output/static"
 binding = 'MY_BUCKET'
 bucket_name = 'my-bucket'
 
+
+[ai]
+binding = "AI"
+
